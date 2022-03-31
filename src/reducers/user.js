@@ -1,13 +1,13 @@
 import { ADD_EMAIL } from '../actions/index';
 
 const INITIAL_STATE = {
-  state: '',
+  email: '',
 };
 
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case ADD_EMAIL:
-    return { state };
+    return { ...state, email: action.email };
   default: return state;
   }
 };

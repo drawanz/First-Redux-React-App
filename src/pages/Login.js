@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { func } from 'prop-types';
+import { connect } from 'react-redux';
+import emailAction from '../actions/index';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor() {
     super();
 
@@ -22,12 +25,23 @@ export default class Login extends Component {
   validationCheck = () => {
     const { email, password } = this.state;
     const minNumber = 6;
-    if (email.match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)
+    if (email.match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/) // https://regexr.com/3e48o
       && password.length >= minNumber) {
       this.setState({ buttonDisabled: false });
     } else {
       this.setState({ buttonDisabled: true });
     }
+  }
+
+  handleClick = () => {
+    const { click, history } = this.props;
+    const { email } = this.state;
+    click(email);
+    this.setState = ({
+      email: '',
+      password: '',
+      buttonDisabled: true,
+    }, history.push('/carteira'));
   }
 
   render() {
@@ -61,6 +75,7 @@ export default class Login extends Component {
         <button
           type="button"
           disabled={ buttonDisabled }
+          onClick={ this.handleClick }
         >
           Entrar
         </button>
@@ -68,3 +83,15 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  click: (email) => {
+    dispatch(emailAction(email));
+  },
+});
+
+Login.propTypes = {
+  click: func,
+}.isRequired;
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -2,6 +2,6 @@
 
 export const ADD_EMAIL = 'ADD_EMAIL';
 
-const emailAction = (state) => ({ type: ADD_EMAIL, state });
+const emailAction = (email) => ({ type: ADD_EMAIL, email });
 
 export default emailAction;
