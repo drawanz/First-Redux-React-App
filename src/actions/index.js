@@ -7,9 +7,9 @@ export const emailAction = (email) => ({ type: ADD_EMAIL, email });
 
 export const actionGetCurrencies = () => ({ type: GET_CURRENCIES });
 
-export const actionGetCurrenciesSucess = (dataAPI) => ({
+export const actionGetCurrenciesSucess = (currencies) => ({
   type: GET_CURRENCIES_SUCESS,
-  dataAPI,
+  currencies,
 });
 
 export const actionGetCurrenciesFail = (error) => ({ type: GET_CURRENCIES_FAIL, error });
@@ -19,9 +19,9 @@ export const thunkGetCurrencies = () => async (dispatch) => {
   try {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await response.json();
-    const keys = Object.keys(data);
-    const dataAPI = delete keys.USDT;
-    dispatch(actionGetCurrenciesSucess(dataAPI));
+    delete data.USDT;
+    const currencies = Object.keys(data);
+    dispatch(actionGetCurrenciesSucess(currencies));
   } catch (e) {
     dispatch(actionGetCurrenciesFail(e));
   }

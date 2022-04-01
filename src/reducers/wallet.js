@@ -1,4 +1,4 @@
-import { GET_CURRENCIES, GET_CURRENCIES_SUCESS, GET_CURRENCIES_FAIL } from "../actions"
+import { GET_CURRENCIES, GET_CURRENCIES_SUCESS, GET_CURRENCIES_FAIL } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -10,7 +10,9 @@ const wallet = (state = INITIAL_STATE, action) => {
   case GET_CURRENCIES:
     return { ...state };
   case GET_CURRENCIES_SUCESS:
-    return { ...state, currencies: [...state.dataAPI] };
+    return { ...state, currencies: [...action.currencies] };
+  case GET_CURRENCIES_FAIL:
+    return { ...state, error: action.error };
   default:
     return state;
   }
