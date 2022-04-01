@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
-import { thunkGetCurrencies } from '../actions/index';
+import { thunkGetCurrencies, thunkGetExchange } from '../actions/index';
 
 class Wallet extends Component {
   constructor() {
     super();
     this.state = {
+      id: 0,
       value: '',
       description: '',
       currency: '',
       method: '',
-      category: '',
+      tag: '',
     };
   }
 
@@ -30,11 +31,18 @@ class Wallet extends Component {
     }));
   }
 
+  handleClick = () => {
+    const { pushExpenses } = this.props;
+    this.setState((prevState) => ({
+      id: prevState.id + 1,
+    }));
+    pushExpenses(this.state);
+  }
+
   render() {
     const { currencies } = this.props;
-    const { value, description, currency, method, category } = this.state;
+    const { value, description, currency, method, tag } = this.state;
 
-    console.log(currencies);
     return (
       <div>
         <Header />
@@ -99,8 +107,8 @@ class Wallet extends Component {
             <select
               id="tag-input"
               data-testid="tag-input"
-              name="category"
-              value={ category }
+              name="tag"
+              value={ tag }
               onChange={ this.handleChange }
             >
               <option>Alimentação</option>
@@ -111,6 +119,12 @@ class Wallet extends Component {
             </select>
           </label>
 
+          <button
+            type="button"
+            onClick={ this.handleClick }
+          >
+            Adicionar despesa
+          </button>
         </form>
       </div>
     );
@@ -119,6 +133,7 @@ class Wallet extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(thunkGetCurrencies()),
+  pushExpenses: (expense) => dispatch(thunkGetExchange(expense)),
 });
 
 const mapStateToProps = (state) => ({

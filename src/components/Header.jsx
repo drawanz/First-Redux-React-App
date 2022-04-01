@@ -6,7 +6,6 @@ class Header extends Component {
   render() {
     const { email } = this.props;
 
-    console.log(email);
     return (
       <header>
         <div>
