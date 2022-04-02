@@ -22,8 +22,6 @@ const wallet = (state = INITIAL_STATE, action) => {
     return { ...state, currencies: [...action.currencies] };
   case GET_CURRENCIES_FAIL:
     return { ...state, error: action.error };
-  // case ADD_EXPENSE:
-  //   return { ...state, expenses: [...state.expenses, action.expense] };
   case GET_EXCHANGE:
     return { ...state };
   case GET_EXCHANGE_SUCESS:
@@ -31,8 +29,6 @@ const wallet = (state = INITIAL_STATE, action) => {
   case GET_EXCHANGE_FAIL:
     return { ...state, error: action.error };
   case REMOVE_EXPENSE:
-    console.log(action.id);
-    console.log(state.expenses.id);
     return { ...state,
       expenses: state.expenses.filter((element) => element.id !== action.id) };
   default:

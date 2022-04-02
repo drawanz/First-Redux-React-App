@@ -51,7 +51,8 @@ class Table extends Component {
                     Excluir
                   </button>
                 </td>
-                {/* <td><button data-testid="edit-btn" type="button">Editar</button></td> */}
+                {/* <td><button data-testid="edit-btn"
+                  type="button">Editar</button></td> */}
               </tr>
             ),
           )}
