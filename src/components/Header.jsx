@@ -7,7 +7,8 @@ class Header extends Component {
     const { email, expenses } = this.props;
 
     const total = expenses.length > 0 ? (
-      expenses.map(({ value, currency, exchangeRates }) => Number(value) * Number(exchangeRates[currency].ask))
+      expenses.map(({ value, currency, exchangeRates }) => (
+        Number(value) * Number(exchangeRates[currency].ask)))
         .reduce((acc, valueAct) => acc + valueAct)
     ) : 0;
 
