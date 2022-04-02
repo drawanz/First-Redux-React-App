@@ -6,6 +6,7 @@ import {
   GET_EXCHANGE,
   GET_EXCHANGE_SUCESS,
   GET_EXCHANGE_FAIL,
+  REMOVE_EXPENSE,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -29,6 +30,11 @@ const wallet = (state = INITIAL_STATE, action) => {
     return { ...state, expenses: [...state.expenses, action.expense] };
   case GET_EXCHANGE_FAIL:
     return { ...state, error: action.error };
+  case REMOVE_EXPENSE:
+    console.log(action.id);
+    console.log(state.expenses.id);
+    return { ...state,
+      expenses: state.expenses.filter((element) => element.id !== action.id) };
   default:
     return state;
   }

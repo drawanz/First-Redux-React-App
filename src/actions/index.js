@@ -10,6 +10,8 @@ export const GET_EXCHANGE = 'GET_EXCHANGE';
 export const GET_EXCHANGE_SUCESS = 'GET_EXCHANGE_SUCESS';
 export const GET_EXCHANGE_FAIL = 'GET_EXCHANGE_FAIL';
 
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+
 export const emailAction = (email) => ({ type: ADD_EMAIL, email });
 
 // export const expenseAction = (expense) => ({ type: ADD_EXPENSE, expense });
@@ -57,3 +59,5 @@ export const thunkGetExchange = (expense) => async (dispatch) => {
     dispatch(actionGetExchangeFail(e));
   }
 };
+
+export const actionRemoveExpense = (id) => ({ type: REMOVE_EXPENSE, id });
