@@ -49,8 +49,9 @@ export const thunkGetExchange = (expense) => async (dispatch) => {
   dispatch(actionGetExchange());
   try {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const exchanges = await response.json();
-    const testeExpense = { ...expense, exchangeRates: { ...exchanges } };
+    const exchangeRates = await response.json();
+    // const { ask } = exchanges[currency];
+    const testeExpense = { ...expense, exchangeRates };
     dispatch(actionGetExchangeSucess(testeExpense));
   } catch (e) {
     dispatch(actionGetExchangeFail(e));

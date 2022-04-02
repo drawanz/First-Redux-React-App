@@ -11,7 +11,7 @@ class Wallet extends Component {
       id: 0,
       value: '',
       description: '',
-      currency: '',
+      currency: 'USD',
       method: '',
       tag: '',
     };
@@ -37,6 +37,13 @@ class Wallet extends Component {
       id: prevState.id + 1,
     }));
     pushExpenses(this.state);
+    this.setState({
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: '',
+      tag: '',
+    });
   }
 
   render() {
@@ -138,6 +145,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 Wallet.propTypes = {
