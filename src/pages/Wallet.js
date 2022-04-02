@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
+import Table from '../components/Table';
 import { thunkGetCurrencies, thunkGetExchange } from '../actions/index';
 
 class Wallet extends Component {
@@ -133,6 +134,8 @@ class Wallet extends Component {
             Adicionar despesa
           </button>
         </form>
+
+        <Table />
       </div>
     );
   }
