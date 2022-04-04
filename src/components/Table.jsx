@@ -10,19 +10,17 @@ class Table extends Component {
       <div>
         <h1>Table</h1>
         <table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
-            </tr>
-          </thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Tag</th>
+            <th>Método de pagamento</th>
+            <th>Valor</th>
+            <th>Moeda</th>
+            <th>Câmbio utilizado</th>
+            <th>Valor convertido</th>
+            <th>Moeda de conversão</th>
+            <th>Editar/Excluir</th>
+          </tr>
           {expenses.length > 0 && expenses.map(
             ({
               id,
@@ -33,7 +31,7 @@ class Table extends Component {
               tag,
               exchangeRates,
             }) => (
-              <tbody key={ id }>
+              <tr key={ id }>
                 <td>{description}</td>
                 <td>{tag}</td>
                 <td>{method}</td>
@@ -60,7 +58,7 @@ class Table extends Component {
                     Excluir
                   </button>
                 </td>
-              </tbody>
+              </tr>
             ),
           )}
         </table>
