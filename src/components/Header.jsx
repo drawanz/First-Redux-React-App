@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
-
     const total = expenses.length > 0 ? (
       expenses.map(({ value, currency, exchangeRates }) => (
         Number(value) * Number(exchangeRates[currency].ask)))

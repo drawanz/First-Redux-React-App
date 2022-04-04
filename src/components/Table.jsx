@@ -5,22 +5,24 @@ import { actionRemoveExpense } from '../actions/index';
 
 class Table extends Component {
   render() {
-    const { expenses, deleteExpense } = this.props;
+    const { expenses, deleteExpense, handleEditExpense } = this.props;
     return (
       <div>
         <h1>Table</h1>
         <table>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Tag</th>
+              <th>Método de pagamento</th>
+              <th>Valor</th>
+              <th>Moeda</th>
+              <th>Câmbio utilizado</th>
+              <th>Valor convertido</th>
+              <th>Moeda de conversão</th>
+              <th>Editar/Excluir</th>
+            </tr>
+          </thead>
           {expenses.length > 0 && expenses.map(
             ({
               id,
@@ -31,7 +33,7 @@ class Table extends Component {
               tag,
               exchangeRates,
             }) => (
-              <tr key={ id }>
+              <tbody key={ id }>
                 <td>{description}</td>
                 <td>{tag}</td>
                 <td>{method}</td>
@@ -44,6 +46,13 @@ class Table extends Component {
                 <td>Real</td>
                 <td>
                   <button
+                    data-testid="edit-btn"
+                    type="button"
+                    onClick={ () => handleEditExpense(id) }
+                  >
+                    Editar
+                  </button>
+                  <button
                     data-testid="delete-btn"
                     type="button"
                     onClick={ () => deleteExpense(id) }
@@ -51,9 +60,7 @@ class Table extends Component {
                     Excluir
                   </button>
                 </td>
-                {/* <td><button data-testid="edit-btn"
-                  type="button">Editar</button></td> */}
-              </tr>
+              </tbody>
             ),
           )}
         </table>

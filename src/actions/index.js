@@ -11,10 +11,9 @@ export const GET_EXCHANGE_SUCESS = 'GET_EXCHANGE_SUCESS';
 export const GET_EXCHANGE_FAIL = 'GET_EXCHANGE_FAIL';
 
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
 export const emailAction = (email) => ({ type: ADD_EMAIL, email });
-
-// export const expenseAction = (expense) => ({ type: ADD_EXPENSE, expense });
 
 export const actionGetCurrencies = () => ({ type: GET_CURRENCIES });
 
@@ -52,7 +51,6 @@ export const thunkGetExchange = (expense) => async (dispatch) => {
   try {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const exchangeRates = await response.json();
-    // const { ask } = exchanges[currency];
     const testeExpense = { ...expense, exchangeRates };
     dispatch(actionGetExchangeSucess(testeExpense));
   } catch (e) {
@@ -61,3 +59,5 @@ export const thunkGetExchange = (expense) => async (dispatch) => {
 };
 
 export const actionRemoveExpense = (id) => ({ type: REMOVE_EXPENSE, id });
+
+export const actionEditExpense = (objToEdit) => ({ type: EDIT_EXPENSE, objToEdit });
