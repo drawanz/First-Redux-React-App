@@ -56,3 +56,8 @@ h1 {
   font-size: 2rem;
   margin-bottom: 3rem;
 }
+
+::placeholder {
+  color: var(--hover-color);
+  font-weight: 600;
+}
