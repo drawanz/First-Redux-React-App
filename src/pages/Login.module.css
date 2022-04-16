@@ -20,17 +20,12 @@
   width: 19rem;
 }
 
-form input {
-  border-radius: 0.5rem;
-  border-style: none;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  outline: none;
-  padding: 0.75rem;
-}
-
-button:enabled {
+.Login__container form button:enabled {
   background-color: var(--accent-color);
   box-shadow: 1px 1px 2px 1px var(--accent-color);
   color: var(--secondary-color);
 }
+
+/* .Login__container form button:enabled:hover {
+  background-color: var(--hover-color);
+} */

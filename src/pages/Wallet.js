@@ -5,10 +5,10 @@ import Form from '../components/Form';
 class Wallet extends Component {
   render() {
     return (
-      <div>
-        <Header />
+      <>
+        {/* <Header /> */}
         <Form />
-      </div>
+      </>
     );
   }
 }

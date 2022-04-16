@@ -49,7 +49,7 @@ class Login extends Component {
     const { buttonDisabled, password, email } = this.state;
     return (
       <main className={ styles.Login__container }>
-        <form>
+        <form onSubmit={ this.handleClick }>
           <h1>Sign in</h1>
           <label htmlFor="email-input">
             <input
@@ -76,9 +76,8 @@ class Login extends Component {
           </label>
 
           <button
-            type="button"
+            type="submit"
             disabled={ buttonDisabled }
-            onClick={ this.handleClick }
           >
             Entrar
           </button>

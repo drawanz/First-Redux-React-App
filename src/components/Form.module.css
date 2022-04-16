@@ -1,0 +1,31 @@
+.Form__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.Form__container form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.Form__container form button {
+  height: 1.5rem;
+}
+
+.Form__container form label {
+  margin-top: 0.7rem;
+}
+
+
+.Form__container form input , select {
+  display: block;
+  height: 1rem;
+  margin-top: 0.25rem;
+}

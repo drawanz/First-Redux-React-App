@@ -6,6 +6,7 @@ import { thunkGetCurrencies,
   thunkGetExchange,
   actionEditExpense,
 } from '../actions/index';
+import styles from './Form.module.css';
 
 class Form extends Component {
   constructor() {
@@ -15,8 +16,8 @@ class Form extends Component {
       value: '',
       description: '',
       currency: 'USD',
-      method: '',
-      tag: '',
+      method: 'Dinheiro',
+      tag: 'Lazer',
       editing: false,
       idToEdit: '',
     };
@@ -41,6 +42,7 @@ class Form extends Component {
   }
 
   handleChange = ({ target }) => {
+    console.log('chamou handle');
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -70,20 +72,8 @@ class Form extends Component {
     const { value, description, currency, method, tag, editing } = this.state;
 
     return (
-      <div>
+      <div className={ styles.Form__container }>
         <form>
-          <label htmlFor="email-input">
-            Despesa:
-            <input
-              id="value-input"
-              data-testid="value-input"
-              name="value"
-              value={ value }
-              onChange={ this.handleChange }
-              type="number"
-            />
-          </label>
-
           <label htmlFor="description-input">
             Descrição:
             <input
@@ -93,6 +83,18 @@ class Form extends Component {
               value={ description }
               onChange={ this.handleChange }
               type="text"
+            />
+          </label>
+
+          <label htmlFor="email-input">
+            Despesa:
+            <input
+              id="value-input"
+              data-testid="value-input"
+              name="value"
+              value={ value }
+              onChange={ this.handleChange }
+              type="number"
             />
           </label>
 

@@ -10,23 +10,9 @@ body {
   width: 100%;
 }
 
-button {
-  font-weight: 700;
-  border-style: none;
-  font-size: 1rem;
-  outline: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 :root {
@@ -34,6 +20,7 @@ code {
   --primary-color: #025CF8;
   --secondary-color: #FEFFFF;
   --accent-color: #1A2F5D;
+  --hover-color: #1a235d;
   height: 100%;
   width: 100%;
 }
@@ -41,5 +28,30 @@ code {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+button {
+  font-weight: 700;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+input, select {
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  border-style: none;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  outline: none;
+  padding: 0.75rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
 }
