@@ -39,6 +39,13 @@ class Form extends Component {
     const { exchangeRates } = expenses[id];
     console.log(exchangeRates);
     startEdit({ id, value, description, currency, method, tag, exchangeRates });
+    this.setState({ value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Lazer',
+      editing: false,
+    });
   }
 
   handleChange = ({ target }) => {

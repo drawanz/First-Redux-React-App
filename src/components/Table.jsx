@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { actionRemoveExpense } from '../actions/index';
+import styles from './Table.module.css';
 
 class Table extends Component {
   render() {
     const { expenses, deleteExpense, handleEditExpense } = this.props;
     return (
-      <div>
-        <h1>Table</h1>
-        <table>
+      <div className={ styles.Container__Table }>
+        <h1>Despesas</h1>
+        <table className={ styles.Table }>
           <tr>
             <th>Descrição</th>
             <th>Tag</th>
@@ -36,7 +37,7 @@ class Table extends Component {
                 <td>{tag}</td>
                 <td>{method}</td>
                 <td>{Number(value).toFixed(2)}</td>
-                <td>{exchangeRates[currency].name}</td>
+                <td>{exchangeRates[currency].name.split('/')[0]}</td>
                 <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
                 <td>
                   {(Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)}
