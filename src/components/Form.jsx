@@ -7,6 +7,7 @@ import { thunkGetCurrencies,
   actionEditExpense,
 } from '../actions/index';
 import styles from './Form.module.css';
+import Header from './Header';
 
 class Form extends Component {
   constructor() {
@@ -169,6 +170,7 @@ class Form extends Component {
               </button>
             )}
         </form>
+        <Header />
         <Table handleEditExpense={ this.handleEditExpense } />
       </div>
     );

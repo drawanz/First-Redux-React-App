@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to bottom right, var(--main-color), var(--primary-color));
+  background-repeat: no-repeat;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -21,8 +21,9 @@ code {
   --secondary-color: #FEFFFF;
   --accent-color: #1A2F5D;
   --hover-color: #1a235d;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  background-image: linear-gradient(to right, var(--main-color), var(--primary-color));
 }
 
 * {

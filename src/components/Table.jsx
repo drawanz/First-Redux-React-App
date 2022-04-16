@@ -45,6 +45,7 @@ class Table extends Component {
                 <td>Real</td>
                 <td>
                   <button
+                    className={ styles.Button__edit }
                     data-testid="edit-btn"
                     type="button"
                     onClick={ () => handleEditExpense(id) }
@@ -52,6 +53,7 @@ class Table extends Component {
                     Editar
                   </button>
                   <button
+                    className={ styles.Button__delete }
                     data-testid="delete-btn"
                     type="button"
                     onClick={ () => deleteExpense(id) }

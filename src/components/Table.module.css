@@ -47,6 +47,13 @@ h1 {
 
 .Table td:last-child {
   border-right: 2px solid var(--secondary-color);
-
 }
 
+.Button__edit {
+  background-color: #837d8b;
+  margin-right: 0.25rem;
+}
+
+.Button__delete {
+  background-color: #0028fe;
+}
